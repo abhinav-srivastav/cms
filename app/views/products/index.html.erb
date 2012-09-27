@@ -1,0 +1,19 @@
+<div class = "heading">
+	<h3 > Our Products </h3> 
+<div style = "text-align: left;">
+<%= link_to "Home", home_index_path  %>
+</div>
+</div>
+
+
+<div class = "product_bar">
+	<ul>
+		<% @products.each do |product| %>
+			<% if product.active_content == 1 %>
+				<li>
+          <%= link_to " #{product.name}", home_index_path %>
+        </li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
