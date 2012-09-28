@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+
+
+.heading{
+	
+	text-align: center;
+
+}
+
+.product_bar{
+	
+	ul{
+		list-style-type: none;
+
+		li{
+			display: inline;
+
+		}
+
+	}
+
+}

@@ -11,9 +11,10 @@
 		<% @products.each do |product| %>
 			<% if product.active_content == 1 %>
 				<li>
-          <%= link_to " #{product.name}", home_index_path %>
+				  <%= link_to " #{product.name}", home_index_path %>
         </li>
 			<% end %>
 		<% end %>
 	</ul>
 </div>
+
