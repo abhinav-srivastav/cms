@@ -1,10 +1,16 @@
 class AdminsController < ApplicationController
 
 	def index
+    respond_to do |format|
+      format.html #index.html.erb
+    end
+  end
+
+  def product
     @products = Product.all
 
     respond_to do |format|
-      format.html #index.html.erb
+      format.html #product.html.erb
     end
 	end
 

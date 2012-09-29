@@ -1,27 +1,9 @@
 <div class = "header">
 	<h3 >Products List </h3> 
 <div style = "text-align: left;">
-<%= link_to "Home", home_index_path  %>
+
 <%= link_to "Admin Controls", control_admins_path  %>
+<%= link_to "Product Controls", product_admins_path  %>
 </div>
 
 </div>
-
-<div class = "product_bar">
-	<table>
-		<% @products.each do |product| %>
-			<tr>
-        <td>
-          <%= link_to " #{product.name}", home_index_path %>
-        </td>
-        <td>
-          <%= link_to "edit", edit_product_path(product) %>
-        </td>
-        <td>
-          <%= link_to "remove", product, method: :delete, data: { confirm: "Are u sure ?" } %>
-        </td>
-      </tr>
-		<% end %>
-	</table>
-</div>
-<%= link_to "add", new_product_path  %>

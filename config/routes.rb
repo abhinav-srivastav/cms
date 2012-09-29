@@ -1,14 +1,15 @@
 Cms::Application.routes.draw do
-  get "sessions/new"
+  get "log_in" => "sessions#new", :as => "log_in"
 
-  get "sessions/create"
+  get "log_out" => "sessions#destroy", :as => "log_out"
 
-  get "sessions/destroy"
+  get "admin_log" => "sessions#index", :as => "admin_log"
 
   get "home/index"
-  resources :products
+  resources :products , :sessions
   resources :admins do
     get :control, on: :collection
+    get :product, on: :collection
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
