@@ -10,6 +10,7 @@ skip_before_filter :allow
 	end
 
 	def new
+    session[:return_to] = request.referer
     @products = Product.new
 
     respond_to do |format|
@@ -22,7 +23,7 @@ skip_before_filter :allow
 
 		respond_to do |format|
 			if @products.save
-			format.html { redirect_to @products, notice: 'Product was successfully added.' }
+			format.html { redirect_to session[:return_to], notice: 'Product was successfully added.' }
 			else
 			format.html { render action: "new" }
 			end
@@ -38,6 +39,7 @@ skip_before_filter :allow
   end
 
   def edit
+    session[:return_to] = request.referer
     @products = Product.find(params[:id])
   end
 
@@ -46,7 +48,7 @@ skip_before_filter :allow
 
     respond_to do |format|
       if @products.update_attributes(params[:product])
-        format.html { redirect_to @products, notice: 'Product was successfully updated'}
+        format.html { redirect_to session[:return_to], notice: 'Product was successfully updated'}
       else
         format.html { render action: "edit"}
       end

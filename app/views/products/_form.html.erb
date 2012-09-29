@@ -1,6 +1,14 @@
 <%= form_for(@products) do |f| %>
-  <% if @products.errors.any? %>
-  <%=  'error in input' %>
+    <% if @products.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@products.errors.count, "error") %>
+        prohibited this user from being saved:</h2>
+      <ul>
+      <% @products.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <table>
