@@ -1,7 +1,15 @@
 Cms::Application.routes.draw do
-  get "home/index"
-  resources :products, :admin
+  get "sessions/new"
 
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  get "home/index"
+  resources :products
+  resources :admins do
+    get :control, on: :collection
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

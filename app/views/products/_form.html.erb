@@ -1,9 +1,7 @@
-
 <%= form_for(@products) do |f| %>
   <% if @products.errors.any? %>
-    <%= "errors" %>
+  <%=  'error in input' %>
   <% end %>
-
 
   <table>
     <tr>
@@ -31,8 +29,8 @@
     	</td>
     </tr>
   </table>
-  
-<div >
-	<%= f.submit %>
-</div>
-<% end %>
+
+  <div >
+  	<%= f.submit %>
+  </div>
+<% end %>  

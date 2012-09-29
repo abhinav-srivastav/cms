@@ -1,0 +1,29 @@
+<div class = "header">
+	<h3 > Admin Accounts </h3>
+  <div style = "text-align: left">
+    <%= link_to "Products Control", admins_path %>
+  </div>
+</div>
+
+<% if notice %>
+<p id =  "notice"><%= notice %></p>
+<% end %>
+
+<table>
+  <tr>
+    <th>username</th>
+ 
+  </tr>
+
+<% @admins.each do |admin| %>
+  <tr>
+    <td><%= admin.username %></td>
+    <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+    <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add admin', new_admin_path %>
