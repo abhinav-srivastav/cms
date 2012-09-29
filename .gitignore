@@ -13,3 +13,16 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#Ignore public folder
+/public
+
+#ignore db schema
+/db/schema.rb
+
+#ignore database.yml
+/config/database.yml
+
+#all hidden files
+.git*
+
