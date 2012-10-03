@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 skip_before_filter :allow 
 
 	def index
-		@products = Product.all
+		@products = Product.find_all_by_active_content(1)
 
 		respond_to do |format|
 			format.html  # index.html.erb
@@ -12,6 +12,7 @@ skip_before_filter :allow
 	def new
     session[:return_to] = request.referer
     @products = Product.new
+    3.times {@products.images.build}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ skip_before_filter :allow
   def edit
     session[:return_to] = request.referer
     @products = Product.find(params[:id])
+    3.times { @products.images.build }
   end
 
   def update 

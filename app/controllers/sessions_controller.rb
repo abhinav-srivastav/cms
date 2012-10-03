@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	admin = Admin.authorize(params[:username], params[:password])
 
   	if admin
-  		session[:admin_id] = admin.id
+     	session[:admin_id] = admin.id
   		redirect_to admins_url, :notice => "Logged in"
    	else
  		flash.now.alert = "Invalid credentials" 	

@@ -1,6 +1,6 @@
-<div class = "heading">
-	<h3 > Our Products </h3> 
-<div style = "text-align: left;">
+<div class = "header" >
+	<h1 > Our Products </h1> 
+<div style = "text-align: left; display: block; margin-top: -3em;">
 <%= link_to "Home", home_index_path  %>
 </div>
 </div>
@@ -9,12 +9,16 @@
 <div class = "product_bar">
 	<ul>
 		<% @products.each do |product| %>
-			<% if product.active_content == 1 %>
-				<li>
-				  <%= link_to " #{product.name}", home_index_path %>
-        </li>
-			<% end %>
+			<li>
+			 <%= link_to product.name %> 
+        <br />
+        <div style = "display: none;">
+          <%= product.description %>
+          <% for img in  product.images do %>
+          <p><%= link_to(image_tag(img.image.url(:small))) %></p>
+       	<% end %>
+        </div>
+      </li>	
 		<% end %>
 	</ul>
 </div>
-
