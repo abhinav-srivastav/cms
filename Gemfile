@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'paperclip', '~> 3.0.0'
+group :test, :development do
+	gem 'rspec-rails', "~> 2.0"
+end
+
+gem "acts_as_list", "~>0.1.8"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

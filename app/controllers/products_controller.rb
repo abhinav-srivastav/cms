@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 skip_before_filter :allow 
 
 	def index
-		@products = Product.find_all_by_active_content(1)
+		@products = Product.order(:position).find_all_by_active_content(1)
 
 		respond_to do |format|
 			format.html  # index.html.erb
