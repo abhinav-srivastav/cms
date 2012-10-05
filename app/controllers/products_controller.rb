@@ -26,6 +26,7 @@ skip_before_filter :allow
 			if @products.save
 			format.html { redirect_to session[:return_to], notice: 'Product was successfully added.' }
 			else
+         3.times {@products.images.build}
 			format.html { render action: "new" }
 			end
 		end
@@ -52,6 +53,7 @@ skip_before_filter :allow
       if @products.update_attributes(params[:product])
         format.html { redirect_to session[:return_to], notice: 'Product was successfully updated'}
       else
+        3.times { @products.images.build }
         format.html { render action: "edit"}
       end
     end
@@ -65,5 +67,7 @@ skip_before_filter :allow
       format.html { redirect_to products_path }
     end
   end
+
+  
 
 end

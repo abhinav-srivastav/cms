@@ -1,21 +1,24 @@
 
 .heading{
-	
 	text-align: center;
-
 }
 
 .product_bar{
-
-
 	ul{
 		list-style-type: none;
 
 		li{
-			display: inline;
+			 display: block;
 
+      #product_desc{
+        display: none;
+        
+        img{
+          float: right;
+        }
+     
+      }
 		}
-
 	}
-
 }
+

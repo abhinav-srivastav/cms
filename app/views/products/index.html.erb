@@ -7,23 +7,26 @@
 
 
 <div class = "product_bar">
+  
+
 	<ul id = "prod">
-		<% @products.each do |product| %>
+    <% @products.each do |product| %>
 			<%= content_tag_for :li, product do %>
-			 <%= link_to product.name %> 
+			 <%= link_to product.name, remote: true %> 
         <br />
-        <div >
-          <%= product.description %>
+        <div id = "product_desc" >
+          <p><%= sanitize(product.description) %></p>
           <% for img in  product.images do %>
-          <p><%= link_to(image_tag(img.image.url(:small))) %></p>
-       	<% end %>
+          <%= link_to(image_tag(img.image.url(:small))) %>
+                 	
+        <% end %>
         </div>
-      <% end %>	
+      <% end %>
+
 		<% end %>
 	</ul>
 
-<% @products.first.move_to_top %>
-<% @products.last.move_higher %>
-<% @products.first.move_to_bottom %>
+<% @products.last.decrement_position %>
+
 
 </div>

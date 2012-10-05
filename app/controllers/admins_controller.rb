@@ -6,22 +6,6 @@ class AdminsController < ApplicationController
     end
   end
 
-  def product
-    @products = Product.all
-
-    respond_to do |format|
-      format.html #product.html.erb
-    end
-	end
-
-  def control
-    @admins = Admin.order(:id)
-
-    respond_to do |format|
-      format.html #index.html.erb
-    end
-  end
-
   def new
     @admin = Admin.new
 
@@ -68,4 +52,27 @@ class AdminsController < ApplicationController
     end
   end
 
+    def product
+    @products = Product.all
+
+    respond_to do |format|
+      format.html #product.html.erb
+    end
+  end
+
+  def control
+    @admins = Admin.order(:id)
+
+    respond_to do |format|
+      format.html #index.html.erb
+    end
+  end
+
+  def image
+    @image = Product.find(params[:id]).images
+
+    respond_to do |format|
+      format.html #image_show.html.erb
+    end
+  end
 end

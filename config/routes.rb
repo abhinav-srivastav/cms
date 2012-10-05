@@ -8,6 +8,7 @@ Cms::Application.routes.draw do
   get "home/index"
   resources :products , :sessions
   resources :admins do
+    get :image, on: :member
     get :control, on: :collection
     get :product, on: :collection
   end
