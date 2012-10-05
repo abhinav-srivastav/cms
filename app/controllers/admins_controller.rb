@@ -69,7 +69,7 @@ class AdminsController < ApplicationController
   end
 
   def image
-    @image = Product.find(params[:id]).images
+    @image = Product.find(params[:id]).images.order(:position)
 
     respond_to do |format|
       format.html #image_show.html.erb
