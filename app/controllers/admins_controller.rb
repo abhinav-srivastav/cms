@@ -32,7 +32,6 @@ class AdminsController < ApplicationController
   
   def update
     @admin = Admin.find(params[:id])
-
     respond_to do |format|
       if @admin.update_attributes(params[:admin])
         format.html { redirect_to control_admins_url, notice: "user updated" }
@@ -53,7 +52,7 @@ class AdminsController < ApplicationController
   end
 
     def product
-    @products = Product.all
+    @products = Product.order(:position)
 
     respond_to do |format|
       format.html #product.html.erb
@@ -75,4 +74,13 @@ class AdminsController < ApplicationController
       format.html #image_show.html.erb
     end
   end
+
+  def sorting
+    tablename = params[:tablename]
+    record = tablename.constantize.find(params[:first_id])
+    record.insert_at(position = (params[:first_position]).to_i)    
+    record = tablename.constantize.find(params[:last_id])
+    record.insert_at(position = (params[:last_position]).to_i)    
+  end
+
 end

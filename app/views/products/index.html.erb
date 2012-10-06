@@ -7,26 +7,31 @@
 
 
 <div class = "product_bar">
-  
-
-	<ul id = "prod">
+  <ul>
+    <% i = -1 %>
     <% @products.each do |product| %>
-			<%= content_tag_for :li, product do %>
-			 <%= link_to product.name, remote: true %> 
-        <br />
-        <div id = "product_desc" >
-          <p><%= sanitize(product.description) %></p>
-          <% for img in  product.images do %>
+    <li id = "product_<%= i = i + 1 %>">
+      <%= link_to product.name  %>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
+
+<div id = "prod">
+  <% i = -1 %>
+  <% @products.each do |product| %>
+		<div class = "details" id = "product_<%= i = i + 1 %>">
+		 <%=  product.name %> 
+      <br />
+      <div id = "product_desc" >
+        <p>
+          <%= sanitize(product.description) %>
+        </p>        
+        <% for img in  product.images do %>
           <%= link_to(image_tag(img.image.url(:small))) %>
-                 	
         <% end %>
-        </div>
-      <% end %>
-
-		<% end %>
-	</ul>
-
-<% @products.last.decrement_position %>
-
-
+      </div>
+    </div>
+	<% end %>
 </div>

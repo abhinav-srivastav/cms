@@ -6,15 +6,18 @@
 </div>
 
 <% if notice %>
-<p id =  "notice"><%= notice %></p>
+  <p id =  "notice"><%= notice %></p>
 <% end %>
 
-<ul>
-  
-  <% for img in  @image do %>
-    <li> 
-      <%= link_to(image_tag(img.image.url(:small))) %>
-    </li>
-  <% end %>
-<% @image.first.move_to_bottom %>
-</ul>
+<table id = "sortable" name = "Image">
+  <tbody class = "content">
+  	<% @image.each do |img| %>
+    	<tr id = "<%= img.id %>">
+    		<td >
+    			<%= link_to(image_tag(img.image.url(:small))) %>  
+    		</td>
+    	</tr>
+  	<% end %>
+	</tbody>
+</table>
+

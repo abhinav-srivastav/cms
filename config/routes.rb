@@ -11,6 +11,7 @@ Cms::Application.routes.draw do
     get :image, on: :member
     get :control, on: :collection
     get :product, on: :collection
+    get :sorting, on: :collection
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

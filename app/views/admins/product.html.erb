@@ -10,19 +10,19 @@
 <% end %>
 
 
- <div class = "product_bar">
-	<ul  id = "sortable">
-  <% @products.each do |product| %>
-  
-    <li >
-      <%= link_to " #{product.name}" %>
-      <%= link_to "edit", edit_product_path(product) %>
-      <%= link_to "remove", product, method: :delete, data: { confirm: "Are u sure ?" } %>
-      <%= link_to "reorder images", image_admin_path(product) %>
-    </li>
-  <% end %> 
-  </ul>
-  
+<div class = "product_bar">
+	<table  id = "sortable" name = "Product">
+    <tbody class = "content">
+      <% @products.each do |product| %>
+        <tr id = "<%= product.id %>">
+          <td><%= link_to " #{product.name}" %></td>
+          <td><%= link_to "edit", edit_product_path(product) %></td>
+          <td><%= link_to "remove", product, method: :delete, data: { confirm: "Are u sure ?" } %></td>
+          <td><%= link_to "reorder images", image_admin_path(product) %></td>
+        </tr>
+      <% end %> 
+    </tbody>      
+  </table>
 </div>
 
 <%= link_to "add", new_product_path  %>

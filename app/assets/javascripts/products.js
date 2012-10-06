@@ -1,11 +1,7 @@
 $(document).ready(function(){
-$(".product").click(function(e){
+$(".product_bar ul li").click(function(e){
 e.preventDefault();
 
-	$(this)
-		.children("#product_desc").slideDown()
-		.end()
-		.siblings().children("#product_desc").slideUp();
-
+	console.log(this)
 });
 });
