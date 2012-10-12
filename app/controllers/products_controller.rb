@@ -3,6 +3,7 @@ skip_before_filter :allow
 
 	def index
 		@products = Product.order(:position).find_all_by_active_content(1)
+    @employee = Employee.all
 
 		respond_to do |format|
 			format.html  # index.html.erb

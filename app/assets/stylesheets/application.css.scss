@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+.employee {
+	display: none;
+}
+
+.heading{
+	
+	text-align: center;
+
+}
+
+.product_bar{
+	
+	ul{
+		list-style-type: none;
+
+		li{
+			display: inline;
+
+		}
+
+	}
+
+}
+
+
+#footer{
+  width: 99%;
+  position : absolute;
+  bottom : 0;
+  padding: 0;
+  .hidden_div{
+    width: 100%;
+    background-color: #ccc;
+    border: 1px solid grey;
+    border-bottom: 0;
+    display: none;
+    div{  
+      vertical-align: top;
+      width: 30%;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      height: 200px ;
+      border-right: 1px solid grey;
+      
+      ul{
+        list-style-type: none;
+        li{
+
+          
+          dl:last-child{
+            border-bottom: 1px solid grey;
+          }
+          
+          dl{
+            
+            margin: 0;            
+            width: 390px;
+            margin-left: -45px;
+            border-top: 1px solid grey;
+            
+            dt,dd{
+              
+              padding-left: 5px;
+
+              p{
+              overflow: auto;
+              display: none;
+
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .map{
+      border: 0;
+      width: 39%;
+    }
+  }
+
+  .bottom_bar{
+    background-color: #ccc;
+    border: 1px solid grey;
+ 
+    height: 100%; 
+    width: 100%;
+    margin-bottom: 5px;
+    div{
+      width: 30%;
+      display: inline-block;  
+      border-right: 1px solid grey; 
+      ul{
+        height: 100%;
+      
+        margin:0;
+      }  
+    }
+    .site_map{
+      border: 0;
+    }     
+  }
+}
+

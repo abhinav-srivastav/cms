@@ -1,15 +1,15 @@
 Cms::Application.routes.draw do
+
   get "log_in" => "sessions#new", :as => "log_in"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
 
-  get "admin_log" => "sessions#index", :as => "admin_log"
-
   get "home/index"
-  resources :products , :sessions
+  resources :products , :sessions, :employees
   resources :admins do
     get :image, on: :member
     get :control, on: :collection
+    get :employee, on: :collection
     get :product, on: :collection
     get :sorting, on: :collection
   end

@@ -1,0 +1,27 @@
+<div class = "header">
+  <h3 > Admin Accounts </h3>
+  <div style = "text-align: left">
+    <%= link_to "Admin Home", admins_path %>
+  </div>
+</div>
+
+<% if notice %>
+<p id =  "notice"><%= notice %></p>
+<% end %>
+
+
+<div >
+	<table  id = "sortable" name = "Employee">
+    <tbody class = "content">
+      <% @employee.each do |emp| %>
+        <tr id = "<%= emp.id %>">
+          <td><%= emp.name %></td>
+          <td><%= link_to "edit", edit_employee_path(emp) %></td>
+          <td><%= link_to "remove", emp, method: :delete, data: { confirm: "Are u sure ?" } %></td>
+        </tr>
+      <% end %> 
+    </tbody>      
+  </table>
+</div>
+
+<%= link_to "add", new_employee_path  %>

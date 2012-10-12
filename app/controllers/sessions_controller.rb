@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_filter :allow
   def new
+    redirect_to log_out_url if session[:admin_id]
   end
 
   def create

@@ -42,7 +42,7 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-    if Admin.count > 1
+    if Admin.count > 2
       @admin = Admin.find(params[:id])
       @admin.destroy   
     end
@@ -60,7 +60,7 @@ class AdminsController < ApplicationController
   end
 
   def control
-    @admins = Admin.order(:id)
+    @admins = Admin.find_all_by_super(0)
 
     respond_to do |format|
       format.html #index.html.erb
@@ -83,4 +83,12 @@ class AdminsController < ApplicationController
     record.insert_at(position = (params[:last_position]).to_i)    
   end
 
+
+  def employee
+    @employee = Employee.all
+
+    respond_to do |format|
+      format.html
+    end
+  end
 end

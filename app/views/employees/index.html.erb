@@ -1,0 +1,38 @@
+<div class = "header">
+  <h3 > Admin Accounts </h3>
+  <div style = "text-align: left">
+    <%= link_to "Admin Home", admins_path %>
+  </div>
+</div>
+
+<table>
+  <thead id = "table_heading">
+    <tr>
+      <td>
+        <%= "Employee name" %>
+      </td>
+      <td>
+        <%= "Designation" %>
+      </td>
+      <td>
+        <%= "About" %>
+      </td>
+    </tr>
+  </thead>
+  <tbody id = "employee_data">
+    <% i = -1 %>
+    <% @employee.each do |emp| %>
+    <tr id = "employee_<%= i = i + 1 %>">
+      <td>
+      <%=  emp.name  %>
+      </td>
+      <td>
+        <%=  emp.designation  %>
+      </td>
+      <td>
+        <%=  emp.about  %>  
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
