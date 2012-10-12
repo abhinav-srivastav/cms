@@ -27,7 +27,7 @@ class EmployeesController < ApplicationController
   def update
     @employee = Employee.find(params[:id])
     respond_to do |format|
-      if @employee.update_attributes(params[:admin])
+      if @employee.update_attributes(params[:employee])
         format.html { redirect_to employee_admins_url, notice: "employee updated" }
       else
         format.html { render action: "edit" }        
