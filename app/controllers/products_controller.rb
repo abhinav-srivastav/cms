@@ -3,7 +3,6 @@ skip_before_filter :allow
 
 	def index
 		@products = Product.order(:position).find_all_by_active_content(1)
-    @employee = Employee.all
 
 		respond_to do |format|
 			format.html  # index.html.erb
@@ -33,7 +32,7 @@ skip_before_filter :allow
 		end
 	end
 
-   def show
+  def show
     @products = Product.find(params[:id])
 
     respond_to do |format|
@@ -65,7 +64,7 @@ skip_before_filter :allow
     @products.destroy
 
     respond_to do |format|
-      format.html { redirect_to products_path }
+      format.html { redirect_to request.referer }
     end
   end
 

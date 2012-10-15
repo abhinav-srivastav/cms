@@ -8,10 +8,7 @@ class AdminsController < ApplicationController
 
   def new
     @admin = Admin.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    index;
   end
 
   def create 
@@ -51,28 +48,22 @@ class AdminsController < ApplicationController
     end
   end
 
-    def product
+  def product
     @products = Product.order(:position)
 
-    respond_to do |format|
-      format.html #product.html.erb
-    end
+    index;
   end
 
   def control
     @admins = Admin.find_all_by_super(0)
 
-    respond_to do |format|
-      format.html #index.html.erb
-    end
+    index;
   end
 
   def image
     @image = Product.find(params[:id]).images.order(:position)
 
-    respond_to do |format|
-      format.html #image_show.html.erb
-    end
+    index;
   end
 
   def sorting
@@ -86,9 +77,6 @@ class AdminsController < ApplicationController
 
   def employee
     @employee = Employee.all
-
-    respond_to do |format|
-      format.html
-    end
+    index;
   end
 end

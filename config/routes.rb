@@ -5,7 +5,8 @@ Cms::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
 
   get "home/index"
-  resources :products , :sessions, :employees
+  get "home/maps"
+  resources :products , :sessions, :employees,:sites
   resources :admins do
     get :image, on: :member
     get :control, on: :collection

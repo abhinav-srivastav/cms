@@ -6,7 +6,7 @@
 
 
 <div class = "introduction">
-	<h3>Aspirer haut</h3>
+	<h3>Sequence</h3>
 	We are a creative development agency.
 	<br />
 	A TEAM OF PEOPLE FOCUSED ON	THE DIGITAL, THE PHYSICAL,
@@ -30,13 +30,10 @@
                <%= emp.name %>
               </dt>
               <dd >
-               <%= emp.designation %>
-               <p>
-                  Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                  ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                  amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                  odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate
-               </p>
+                <%= emp.designation %>
+                <p>
+                  <%= emp.about %>                  
+                </p>
               </dd>
             </dl>
           <% end %>
@@ -46,7 +43,13 @@
     <div class = "map">
       <ul>
         Site map
-        <li id = "site_map">
+        <li id = "site_map">      
+          <div>
+            <%= gmaps({
+              "map_options" => {"auto_zoom" => false, "zoom" => 15 },
+              "markers"     => {"data" => @maps_json }
+            }) %>
+          <div>          
         </li>
       </ul>
     </div>
@@ -56,17 +59,17 @@
   <div class = "bottom_bar">
   	<div class = "contact">
       <ul>      
-    			<%= link_to "contact us", home_index_path %>
+    			<%= link_to "contact us" %>
       </ul>
     </div>
     <div class = "leadership">
     	<ul>
-        <%= link_to "leadership", home_index_path %>
+        <%= link_to "leadership" %>
       </ul>
     </div>
     <div class = "site_map">
   		<ul>	 
-        <%= link_to "site map", home_index_path %>
+        <%= link_to "site map" %>
       </ul>
     </div>
   </div>

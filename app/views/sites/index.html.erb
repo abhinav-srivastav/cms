@@ -1,0 +1,8 @@
+<div  >
+	<%= gmaps({
+     "map_options" => {"auto_zoom" => false, "zoom" => 15 },
+     "markers"     => {"data" => @json }
+   }) %>
+ </div>
+
+ <%= @json %>

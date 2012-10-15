@@ -1,3 +1,7 @@
+<% flash.each do |v,k| %>
+<p id =  "flash"><%= k %></p>
+<% end %>
+
 <div >
   <%= form_tag sessions_path do %>
     <fieldset>

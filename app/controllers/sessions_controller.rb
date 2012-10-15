@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
      	session[:admin_id] = admin.id
   		redirect_to admins_url, :notice => "Logged in"
    	else
- 		flash.now.alert = "Invalid credentials" 	
- 		render "new"
+   		flash.now.alert = "Invalid credentials !" 	
+   		render "new"
   	end
 
   end
