@@ -64,16 +64,7 @@ class AdminsController < ApplicationController
     @image = Product.find(params[:id]).images.order(:position)
 
     index;
-  end
-
-  def sorting
-    tablename = params[:tablename]
-    record = tablename.constantize.find(params[:first_id])
-    record.insert_at(position = (params[:first_position]).to_i)    
-    record = tablename.constantize.find(params[:last_id])
-    record.insert_at(position = (params[:last_position]).to_i)    
-  end
-
+  end  
 
   def employee
     @employee = Employee.all

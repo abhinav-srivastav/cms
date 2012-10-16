@@ -1,8 +1,6 @@
 <div class = "header">
   <h3 > Admin Accounts </h3>
-  <div style = "text-align: left">
-    <%= link_to "Admin Home", admins_path %>
-  </div>
+  <%= render "admin_navigation" %>
 </div>
 
 <% if notice %>
@@ -14,6 +12,7 @@
   	<% @image.each do |img| %>
     	<tr id = "<%= img.id %>">
     		<td >
+          <%= img.position %>
     			<%= link_to(image_tag(img.image.url(:small))) %>  
     		</td>
     	</tr>
