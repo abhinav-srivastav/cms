@@ -61,7 +61,7 @@ class AdminsController < ApplicationController
   end
 
   def employee
-    @employee = Employee.all
+    @employee = Employee.order(:position)
     index;
   end
 end

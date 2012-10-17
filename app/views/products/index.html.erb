@@ -31,10 +31,10 @@
         <% for img in  product.images do %>
           <%= link_to(image_tag(img.image.url(:small))) %>
         <% end %>
-        <!-- <br />
+        <br />
       <div id = "product_<%= i + 1 %>" class = "product_name">
         <%= link_to @products[i +1].name if @products[i + 1] %>
-      </div>   -->
+      </div>  
       </div>
       
     </div>

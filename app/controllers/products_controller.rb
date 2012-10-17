@@ -77,16 +77,5 @@ skip_before_filter :allow
     respond_to do |format|
       format.html { redirect_to request.referer }
     end
-  end
-
-  def sorting
-    tablename = params[:tablename]
-    record = tablename.constantize.find(params[:first_id])
-    record.insert_at(position = (params[:first_position]).to_i)    
-    record = tablename.constantize.find(params[:last_id])
-    record.insert_at(position = (params[:last_position]).to_i)    
-  end
-
-  
-
+  end 
 end

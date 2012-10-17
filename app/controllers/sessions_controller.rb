@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_filter :allow
   def new
-    redirect_to admins_url if session[:admin_id]
+    if session[:admin_id]
+      redirect_to admins_url , :notice => "Already logged in !"
+    end
   end
 
   def create
@@ -19,6 +21,6 @@ class SessionsController < ApplicationController
 
   def destroy
   	session[:admin_id] = nil
-  	redirect_to request.referer, :notice => "Logged out" 
+  	redirect_to :root, :notice => "Logged out" 
   end
 end

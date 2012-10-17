@@ -8,7 +8,7 @@ $(document).ready(function(){
 			$(".hidden_div").show("slide", { direction: "down" }, 300);
 		},
 		function(){
-			$(".hidden_div").hide("slide", { direction: "up" } , 300)	
+			$(".hidden_div").hide("slide", { direction: "down" } , 300)	
 		}
 	);
 

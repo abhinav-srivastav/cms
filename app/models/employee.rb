@@ -1,5 +1,7 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :about, :designation, :name
+  acts_as_list
+
+  attr_accessible :about, :designation, :name, :position
 
   validates_presence_of :name
   # validates_presence_of :about, :designation
