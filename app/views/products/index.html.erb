@@ -10,7 +10,7 @@
   <ul>
     <% i = -1 %>
     <% @products.each do |product| %>
-    <li id = "product_<%= i = i + 1 %>">
+    <li id = "product_<%= i = i + 1 %>" class = "product_name">
       <%= link_to product.name  %>
     </li>
     <% end %>
@@ -31,7 +31,12 @@
         <% for img in  product.images do %>
           <%= link_to(image_tag(img.image.url(:small))) %>
         <% end %>
+        <!-- <br />
+      <div id = "product_<%= i + 1 %>" class = "product_name">
+        <%= link_to @products[i +1].name if @products[i + 1] %>
+      </div>   -->
       </div>
+      
     </div>
 	<% end %>
 </div>

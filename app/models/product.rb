@@ -7,4 +7,7 @@ class Product < ActiveRecord::Base
 	validates :name, :description, presence: true
 	validates_uniqueness_of :name
 
+
+	scope :active_content, where(:active_content => true)
+	scope :preview, where("active_content = ? OR preview = ?", true, true)
 end

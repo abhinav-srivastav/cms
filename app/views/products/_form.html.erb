@@ -52,22 +52,20 @@
     <% end %>
   </div>
   <%= link_to_add_images "add more image", f, :images%>
- 
-
- 
     <table id = "sortable" name = "Image">
-      <tbody class = "content">
-        <% @image.each do |img| %>
-          <% if img.image_file_name %>          
+      <% if @image && @image.first && @image.first.image_file_name   %>
+        <tbody class = "content">
+          <% @image.each do |img| %>           
             <tr id = "<%= img.id %>">
               <td >
                 <%= img.position %>
-                <%= link_to(image_tag(img.image.url(:small))) %>  
+                <%= link_to(image_tag(img.image.url(:small))) %> 
+                <%= link_to "remove",{ :action => "remove_img", :image_id => img.id }  %>
               </td>
             </tr>
           <% end %>
-        <% end %>
-      </tbody>
+        </tbody>
+      <% end %>
     </table>
    <% @products.move_to_bottom unless @products.position %>
   <div >

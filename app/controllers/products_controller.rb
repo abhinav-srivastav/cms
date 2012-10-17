@@ -2,15 +2,17 @@ class ProductsController < ApplicationController
 skip_before_filter :allow 
 
 	def index
-		@products = Product.order(:position).find_all_by_active_content(true)
-
-		respond_to do |format|
+    if session[:admin_id]
+		  @products = Product.order(:position).preview
+		else
+      @products = Product.order(:position).active_content
+    end
+    respond_to do |format|
 			format.html  # index.html.erb
 		end
 	end
 
 	def new
-    session[:return_to] = request.referer
     @products = Product.new
     @products.images.build
 
@@ -24,7 +26,7 @@ skip_before_filter :allow
 
 		respond_to do |format|
 			if @products.save
-			format.html { redirect_to session[:return_to], notice: 'Product was successfully added.' }
+			format.html { redirect_to product_admins_path, notice: 'Product was successfully added.' }
 			else
         @products.images.build
 			format.html { render action: "new" }
@@ -41,7 +43,6 @@ skip_before_filter :allow
   end
 
   def edit
-    session[:return_to] = request.referer
     @image = Product.find(params[:id]).images.order(:position)
     @products = Product.find(params[:id])
     @products.images.build
@@ -52,7 +53,7 @@ skip_before_filter :allow
 
     respond_to do |format|
       if @products.update_attributes(params[:product])
-        format.html { redirect_to session[:return_to], notice: 'Product was successfully updated'}
+        format.html { redirect_to product_admins_path, notice: 'Product was successfully updated'}
       else
         @products.images.build
         format.html { render action: "edit"}
@@ -63,6 +64,15 @@ skip_before_filter :allow
   def destroy
     @products = Product.find(params[:id])
     @products.destroy
+
+    respond_to do |format|
+      format.html { redirect_to request.referer }
+    end
+  end
+
+  def remove_img
+    @image = Image.find(params[:image_id])
+    @image.destroy
 
     respond_to do |format|
       format.html { redirect_to request.referer }

@@ -6,11 +6,12 @@ Cms::Application.routes.draw do
 
   get "home/index"
   get "home/maps"
-  resources :products , :sessions, :employees,:sites
-  resources :application do
-    get :sorting, on: :collection
-  end
+  get "application/sorting"
 
+  resources :sessions, :employees,:sites
+  resources :products do
+    get :remove_img, on: :member
+  end
   resources :admins do
     get :image, on: :member
     get :control, on: :collection

@@ -60,12 +60,6 @@ class AdminsController < ApplicationController
     index;
   end
 
-  def image
-    @image = Product.find(params[:id]).images.order(:position)
-
-    index;
-  end  
-
   def employee
     @employee = Employee.all
     index;
