@@ -1,7 +1,7 @@
 class Image < ActiveRecord::Base
 	acts_as_list
 
-	attr_accessible :image, :position
+	attr_accessible :image, :position,:caption
 	belongs_to :product
 	has_attached_file :image, :styles => { :small => "150x150>" },
           	    					  :path => ":rails_root/public/system/:attachment/:id/:style/:filename",

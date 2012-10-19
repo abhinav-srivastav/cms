@@ -1,14 +1,54 @@
 <p id="notice"><%= notice %></p>
+<table class = "show_product">
+  <tr>    	
+  	<td>
+  		<b>
+  			Name:
+  		</b>
+  		<%= @products.name %>
+  	</td>
+  </tr>
+  <tr>
+  	<td>
+      <b>
+        Description:
+      </b>        
+      <div class = "description">
+  		  <%= @products.description %>
+  	   </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>
+        Active Content:
+      </b>
+      <%= @products.active_content %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>
+        Preview:
+      </b>
+      <%= @products.preview %>
+    </td>
 
-<p>
-  <b>Name:</b>
-  <%= @products.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @products.description %>
-</p>
-
-
-<%= link_to 'Back', products_path %>
+  </tr>
+  <tr class  = "image_show">  
+      <td>
+        <b>
+          Images:
+        </b>
+        <br/>
+        <% @products.images.each do |img| %> 
+        <%= img.caption %>
+        <br/>
+        <%= image_tag(img.image.url(:small))%>
+        <br/><br />
+        <% end %>
+      </td>
+    </tr>
+  
+</table>
+<%= link_to 'Back', product_admins_path %>

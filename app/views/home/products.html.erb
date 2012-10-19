@@ -27,10 +27,11 @@
         <br />
         <div id = "product_desc" >
           <p>
-            <%= sanitize(product.description) %>
+            <%= product.description %>
           </p>        
           <% for img in  product.images do %>
             <%= link_to(image_tag(img.image.url(:small))) %>
+            <%= img.caption%><br/>
           <% end %>
           <br />
         <div id = "product_<%= i + 1 %>" class = "product_name">

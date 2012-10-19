@@ -19,7 +19,27 @@
     float: left;
     width: 1280px;
     #product_desc{
-
     }
   }
 }        
+
+.show_product{
+  tr{
+    height: 70px;
+
+    td{
+      border: 1px solid ;
+      width: 700px;
+      background-color: #aabbcc;
+      padding: 10px;
+      div.description{
+        padding-right : 20px;
+        text-align:justify;
+      }
+    }
+  }  
+}
+#img_upload {
+
+}
+

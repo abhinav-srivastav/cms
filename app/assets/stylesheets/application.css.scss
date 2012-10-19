@@ -11,6 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+.body{
+  overflow-x:hidden;
+}
+.container{
+
+}
 .employee {
 	display: none;
 }
@@ -35,7 +42,6 @@
 
 }
 
-
 #footer{
   width: 99%;
   position : absolute;
@@ -47,7 +53,113 @@
     border: 1px solid grey;
     border-bottom: 0;
     display: none;
-    div{  
+    div{
+      vertical-align: top;
+      width: 30%;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      height: 200px ;
+      border-right: 1px solid grey;
+      
+      ul{
+        list-style-type: none;
+        li{
+
+          
+          dl:last-child{
+            border-bottom: 1px solid grey;
+          }
+          
+          dl{
+            
+            margin: 0;
+            width: 390px;
+            margin-left: -45px;
+            border-top: 1px solid grey;
+            
+            dt,dd{
+              
+              padding-left: 5px;
+
+              p{
+              overflow: auto;
+              display: none;
+
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .map{
+      border: 0;
+      width: 39%;
+      div{
+        border:0;
+        padding:0;
+        .map_container {
+          padding: 6px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: #ccc #ccc #999 #ccc;
+          -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+          -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+          box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+          width: 100%;
+        }
+
+        div.gmnoprint{
+          display: none;
+        }
+        .gmaps4rails_map {
+          width: 220px;
+          height: 107px;
+        }
+      }
+    }
+  }
+
+  .bottom_bar{
+    background-color: #ccc;
+    border: 1px solid grey;
+ 
+    height: 100%;
+    width: 100%;
+    margin-bottom: 5px;
+    div{
+      width: 30%;
+      display: inline-block;
+      border-right: 1px solid grey;
+      ul{
+        height: 100%;
+      
+        margin:0;
+      }
+    }
+    .site_map{
+      border: 0;
+    }
+  }
+}
+
+
+
+sadugfiu {
+#footer{
+  width: 99%;
+  position : relative;
+  bottom : 0;
+  padding: 0;
+  .hidden_div{
+    width: 100%;
+    background-color: #ccc;
+    border: 1px solid grey;
+    border-bottom: 0;
+    margin-top:-220px;
+    display: none;
+    .content_div,.employee_div,.map{  
       vertical-align: top;
       width: 30%;
       padding: 0;
@@ -88,29 +200,9 @@
     }
 
     .map{
-      border: 0;
-      width: 39%;
-      div{      
-        border:0;
-        padding:0;
-        .map_container {
-          padding: 6px;
-          border-width: 1px;
-          border-style: solid;
-          border-color: #ccc #ccc #999 #ccc;
-          -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-          -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-          box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-          width: 100%;
-        }
-
-        div.gmnoprint{
-          display:  none;
-        }
-        .gmaps4rails_map {
-          width: 220px;
-          height: 107px;
-        }
+      
+      #map_canvas {
+       height: 100%;
       }
     }
   }
@@ -121,7 +213,6 @@
  
     height: 100%; 
     width: 100%;
-    margin-bottom: 5px;
     div{
       width: 30%;
       display: inline-block;  
@@ -138,3 +229,4 @@
   }
 }
 
+}

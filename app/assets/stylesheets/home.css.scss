@@ -23,3 +23,30 @@
 	width: 400px;
 	margin-left: 33%;	
 }
+
+.heading{
+  text-align: center;
+}
+
+.product_bar{
+	text-align: center;
+  ul{
+		list-style-type: none;
+
+		li{
+			display: inline;
+		}
+  }
+}
+
+#prod{
+ 
+  #details{
+    float: left;
+    width: 1280px;
+    #product_desc{
+    	text-align: justify;
+
+    }
+  }
+}        

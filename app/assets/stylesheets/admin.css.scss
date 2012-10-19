@@ -1,7 +1,14 @@
-table{
+ #sortable{
+	margin-left: 150px;
+	margin-top: 50px;
+	border: 1px solid;
 	tr{
+
 		td{
-    	padding-left: 20px;
+			background-color: #aabbcc;
+	
+    	padding: 20px;
+
 		}
 	}
 }

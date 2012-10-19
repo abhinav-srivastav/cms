@@ -1,78 +1,20 @@
-<h1 class = "header" >This is Home of Innovation</h1>
-<div class = "product_link">
-<%= link_to "Our Products", products_path %>
-</div>
+<%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=AIzaSyCo4jcXphkhp_dSlV1keObps6TvSIqhSG4&sensor=false"%>
 
-
-
-<div class = "introduction">
-	<h3>Sequence</h3>
-	We are a creative development agency.
-	<br />
-	A TEAM OF PEOPLE FOCUSED ON	THE DIGITAL, THE PHYSICAL,
-	<br>
-	AND THE PLACES IN-BETWEEN.
-</div>
-<div id = "footer" >
-  <div class = "hidden_div">
-    <div  class = "content_div">
-      <ul>
-        Contact Info:
-      </ul>
-    </div>
-    <div class = "employee_div">
-      <ul class = "accordion">
-        LEADERSHIP
-        <li id = "employee">
-          <% @employee.each do |emp| %>
-            <dl id = "emp_details"  >
-              <dt>
-               <%= emp.name %>
-              </dt>
-              <dd >
-                <%= emp.designation %>
-                <p>
-                  <%= emp.about %>                  
-                </p>
-              </dd>
-            </dl>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    <div class = "map">
-      <ul>
-        Site map
-        <li id = "site_map">      
-          <div>
-            <%= gmaps({
-              "map_options" => {"auto_zoom" => false, "zoom" => 15 },
-              "markers"     => {"data" => @maps_json }
-            }) %>
-          <div>          
-        </li>
-      </ul>
-    </div>
-
+<div class = "container">
+  <h1 class = "header" >This is Home of Innovation</h1>
+  <div class = "product_link">
+  <%= link_to "Our Products", home_products_path %>
   </div>
 
-  <div class = "bottom_bar">
-  	<div class = "contact">
-      <ul>      
-    			<%= link_to "contact us" %>
-      </ul>
-    </div>
-    <div class = "leadership">
-    	<ul>
-        <%= link_to "leadership" %>
-      </ul>
-    </div>
-    <div class = "site_map">
-  		<ul>	 
-        <%= link_to "site map" %>
-      </ul>
-    </div>
+  <div class = "introduction">
+  	<h3>Sequence</h3>
+  	We are a creative development agency.
+  	<br />
+  	A TEAM OF PEOPLE FOCUSED ON	THE DIGITAL, THE PHYSICAL,
+  	<br>
+  	AND THE PLACES IN-BETWEEN.
   </div>
 </div>
+<%= render "footer"%>
 
 

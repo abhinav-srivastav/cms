@@ -1,0 +1,61 @@
+<div id = "footer" >
+  <div class = "hidden_div">
+    <div  class = "content_div">
+      <ul>
+        Contact Info:
+        <li>
+          <%= link_to "hey@sequence.com" %>
+        </li>
+      </ul>
+    </div>
+    <div class = "employee_div">
+      <ul class = "accordion">
+        LEADERSHIP
+        <li id = "employee">
+          <% @employee.each do |emp| %>
+            <dl id = "emp_details"  >
+              <dt>
+               <%= emp.name %>
+              </dt>
+              <dd >
+                <%= emp.designation %>
+                <p>
+                  <%= emp.about %>                  
+                </p>
+              </dd>
+            </dl>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class = "map">
+      <ul>
+        Site map
+        <li id = "site_map">      
+          <div id = "map_canvas">
+            
+          <div>          
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class = "bottom_bar">
+  	<div class = "contact">
+      <ul>      
+    			<%= link_to "contact us" %>
+      </ul>
+    </div>
+    <div class = "leadership">
+    	<ul>
+        <%= link_to "leadership" %>
+      </ul>
+    </div>
+    <div class = "site_map">
+  		<ul>	 
+        <%= link_to "site map" %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,13 @@
-<% if f.object.new_record? %>
-	<p> <%= f.file_field :image %></p>
-<% end %>
+	<ul>
+	    <li>
+	    	
+	    		<%= f.file_field :image %>
+	    	
+	    </li>
+	    <li>
+	    	<%= "Caption:(optional)" %>
+	    </li>
+	    <li>
+			<%= f.text_field :caption, size: 23 %>
+		</li>
+	</ul>

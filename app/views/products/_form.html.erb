@@ -1,16 +1,18 @@
-    <% if @products.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@products.errors.count, "error") %>
-        prohibited this user from being saved:</h2>
-      <ul>
+<% if @products.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@products.errors.count, "error") %>
+      prohibited this user from being saved:</h2>
+    <ul>
       <% @products.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li>
+          <%= msg %>
+        </li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-<%= form_for @products, :html => { :multipart => true }  do |f| %>
+    </ul>
+  </div>
+<% end %>
 
+<%= form_for @products, :html => { :multipart => true }  do |f| %>
   <table>
     <tr>
     	<td>
@@ -44,30 +46,46 @@
         <%= f.check_box :preview %>
       </td>
     </tr>
-  </table>
-
-  <div id =  "img_upload">
-    <%= f.fields_for :images do |img| %>
-      <%= render 'image_fields', :f => img %>
-    <% end %>
-  </div>
-  <%= link_to_add_images "add more image", f, :images%>
-    <table id = "sortable" name = "Image">
-      <% if @image && @image.first && @image.first.image_file_name   %>
-        <tbody class = "content">
-          <% @image.each do |img| %>           
-            <tr id = "<%= img.id %>">
-              <td >
-                <%= img.position %>
-                <%= link_to(image_tag(img.image.url(:small))) %> 
-                <%= link_to "remove",{ :action => "remove_img", :image_id => img.id }  %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      <% end %>
     </table>
-   <% @products.move_to_bottom unless @products.position %>
+    
+        <div id =  "img_upload">  
+        <b> Add image </b>
+    
+        
+          <%= f.fields_for :images do |img| %>
+            <% if img.object.new_record? %>
+              <%= render 'image_fields', :f => img %>
+            <%end%>
+          <% end %>
+        
+  <%= link_to_add_images "add more", f, :images%>
+  </div>
+  <br />
+  <br />
+  <b>Product's images</b>
+  
+  <table id = "sortable" name = "Image">
+    <% if @image && @image.first && @image.first.image_file_name %>
+      <tbody class = "content">
+        <% @image.each do |img| %>           
+          <tr id = "<%= img.id %>">
+            <td>
+              <div id = "caption">
+                <%= img.caption %>
+              </div>
+              <div>                
+                <%= link_to(image_tag(img.image.url(:small))) %> 
+                <%= link_to "edit", { :action => "edit_image", :id => img.id} %>
+                  
+                <%= link_to "remove",{ :action => "remove_img", :image_id => img.id }  %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+  <% @products.move_to_bottom unless @products.position %>
   <div >
   	<%= f.submit %>
   </div>

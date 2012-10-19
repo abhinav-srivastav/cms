@@ -55,6 +55,6 @@ $(document).ready(function(){
     } 
   });
 
-  $("*#sortable tbody.content").disableSelection();
+  //$("*#sortable tbody.content").disableSelection();
 
 });

@@ -1,6 +1,5 @@
 $(document).ready(function(){
-  var width_div = $("#prod").children().length * 1024;
-  $("#prod").css("width", width_div )
+
   $("div #details").hide().first().show().addClass("active");
 
   $(".product_name").click(function(e){

@@ -1,0 +1,7 @@
+<div id = "edit_caption">
+	<%= form_for @image1, :url => {:action => "update_img"} do |u|  %>
+		<%= u.text_field :caption %>
+		<%= u.submit value: "update caption"%>
+	<% end %>
+	<%= link_to "back", edit_product_path(@image1.product)%>
+</div>

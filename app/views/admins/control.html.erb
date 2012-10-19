@@ -3,12 +3,7 @@
   <%= render "admin_navigation" %>
 </div>
 
-<table>
-  <tr>
-    <th>username</th>
- 
-  </tr>
-
+<table id = "sortable">
 <% @admins.each do |admin| %>
   <tr>
     <td><%= admin.username %></td>

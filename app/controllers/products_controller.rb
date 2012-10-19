@@ -1,16 +1,16 @@
 class ProductsController < ApplicationController
-skip_before_filter :allow 
 
-	def index
-    if session[:admin_id]
-		  @products = Product.order(:position).preview
-		else
-      @products = Product.order(:position).active_content
-    end
-    respond_to do |format|
-			format.html  # index.html.erb
-		end
-	end
+	# def index
+ #    if session[:admin_id]
+	# 	  @products = Product.order(:position).preview
+	# 	else
+ #      @products = Product.order(:position).active_content
+ #    end
+ #    @employee = Employee.order(:position)
+ #    respond_to do |format|
+	# 		format.html  # index.html.erb
+	# 	end
+	# end
 
 	def new
     @products = Product.new
@@ -48,6 +48,19 @@ skip_before_filter :allow
     @products.images.build
   end
 
+
+  def update_img
+    @image = Image.find(params[:id])
+
+    respond_to do |format|
+      if @image.update_attributes(params[:image])
+        format.html { redirect_to edit_product_path(@image.product) }
+      else
+        format.html { render action: "edit_img"}
+      end
+    end
+  end
+
   def update 
     @products = Product.find(params[:id])
 
@@ -78,4 +91,16 @@ skip_before_filter :allow
       format.html { redirect_to request.referer }
     end
   end 
+  
+  def edit_image
+
+    @image1 = Image.find(params[:id])
+    # @product = Product.find(params[:id])
+  end
+
+
+
+
+
+
 end
