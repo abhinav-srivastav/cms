@@ -1,0 +1,9 @@
+<div id = "edit_caption">
+	<%= form_for @image1, :url => {:action => "update_img"} do |u|  %>
+		<%= u.text_field :caption %>
+		<%= u.submit value: "update caption"%>
+
+		
+		<%=  u.button "cancel", :value => nil%>
+	<% end %>
+</div>

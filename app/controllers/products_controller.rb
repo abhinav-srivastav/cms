@@ -1,17 +1,5 @@
 class ProductsController < ApplicationController
 
-	# def index
- #    if session[:admin_id]
-	# 	  @products = Product.order(:position).preview
-	# 	else
- #      @products = Product.order(:position).active_content
- #    end
- #    @employee = Employee.order(:position)
- #    respond_to do |format|
-	# 		format.html  # index.html.erb
-	# 	end
-	# end
-
 	def new
     @products = Product.new
     @products.images.build
@@ -51,13 +39,16 @@ class ProductsController < ApplicationController
 
   def update_img
     @image = Image.find(params[:id])
-
-    respond_to do |format|
-      if @image.update_attributes(params[:image])
-        format.html { redirect_to edit_product_path(@image.product) }
-      else
-        format.html { render action: "edit_img"}
+    if params[:commit] 
+      respond_to do |format|
+        if @image.update_attributes(params[:image])
+          format.html { redirect_to edit_product_path(@image.product) }
+        else
+          format.html { render action: "edit_img"}
+        end
       end
+    else
+      redirect_to request.referer
     end
   end
 
@@ -93,14 +84,6 @@ class ProductsController < ApplicationController
   end 
   
   def edit_image
-
     @image1 = Image.find(params[:id])
-    # @product = Product.find(params[:id])
   end
-
-
-
-
-
-
 end

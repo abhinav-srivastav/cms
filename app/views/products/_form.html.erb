@@ -75,7 +75,7 @@
               </div>
               <div>                
                 <%= link_to(image_tag(img.image.url(:small))) %> 
-                <%= link_to "edit", { :action => "edit_image", :id => img.id} %>
+                <%= link_to "edit", { :action => "edit_image", :id => img.id}, :remote => true %>
                   
                 <%= link_to "remove",{ :action => "remove_img", :image_id => img.id }  %>
               </div>

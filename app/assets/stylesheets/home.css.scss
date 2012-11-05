@@ -4,24 +4,24 @@
 
 .header{
 
-	color: #acacac;
-	font-weight: bold;
-	text-align: center;
-	padding: 10px;
-	border-bottom: 1px dotted black;
+  color: #acacac;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px dotted black;
 
 }
 
 .product_link{
-	text-align: right;
-	margin-top: -5%;
+  text-align: right;
+  margin-top: -5%;
 
 }
 .introduction{
-	font-size: 150%;
-	text-align: center;
-	width: 400px;
-	margin-left: 33%;	
+  font-size: 150%;
+  text-align: center;
+  width: 400px;
+  margin-left: 33%; 
 }
 
 .heading{
@@ -29,13 +29,13 @@
 }
 
 .product_bar{
-	text-align: center;
+  text-align: center;
   ul{
-		list-style-type: none;
+    list-style-type: none;
 
-		li{
-			display: inline;
-		}
+    li{
+      display: inline;
+    }
   }
 }
 
@@ -45,8 +45,106 @@
     float: left;
     width: 1280px;
     #product_desc{
-    	text-align: justify;
+      text-align: justify;
 
     }
   }
 }        
+
+
+#footer{
+  width: 99%;
+  position : absolute;
+  bottom : 0;
+  padding: 0;
+  .hidden_div{
+    width: 100%;
+    background-color: #ccc;
+    border: 1px solid grey;
+    border-bottom: 0;
+    display: none;
+    .content_div,.employee_div{
+      vertical-align: top;
+      width: 30%;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      height: 200px ;
+      border-right: 1px solid grey;
+      
+      ul{
+        list-style-type: none;
+        li{
+
+          
+          dl:last-child{
+            border-bottom: 1px solid grey;
+          }
+          
+          dl{
+            
+            margin: 0;
+            width: 390px;
+            margin-left: -45px;
+            border-top: 1px solid grey;
+            
+            dt,dd{
+              
+              padding-left: 5px;
+
+              p{
+              overflow: auto;
+              display: none;
+
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .map{
+      display: inline-block;  
+      border: 0;
+     
+      #site_map{
+        width: 100px;
+          #map_canvas {
+          width: 200px;
+          height: 100px;          
+          border:0;
+          padding:0; 
+          div{
+          margin: 0;
+          }                
+          .gmnoprint{
+                           
+           }
+          }
+
+      }
+    }
+  }
+
+  .bottom_bar{
+    background-color: #ccc;
+    border: 1px solid grey;
+ 
+    height: 100%;
+    width: 100%;
+    margin-bottom: 5px;
+    div{
+      width: 30%;
+      display: inline-block;
+      border-right: 1px solid grey;
+      ul{
+        height: 100%;
+      
+        margin:0;
+      }
+    }
+    .site_map{
+      border: 0;
+    }
+  }
+}

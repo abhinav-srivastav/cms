@@ -1,10 +1,10 @@
 <div class = "header">
-  <h3 > Admin Accounts </h3>
+  <h3 > Products Account </h3>
   <%= render "admin_navigation" %>
 </div>
 
 <div class = "product_bar">
-	<table  id = "sortable" name = "Product">
+	<table  id = "sortable" name = "Product">    
     <tbody class = "content">
       <% @products.each do |product| %>
         <tr id = "<%= product.id %>">
